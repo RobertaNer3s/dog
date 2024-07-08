@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="container">
+    <span class="text-title">WoofWorld</span>
+    <img src="images/dogimg.webp" alt="Logo" class="logo" />
+  </div>
+
+  <div class="menu-desktop">
+    <button mat-button [matMenuTriggerFor]="menu">Inicio</button>
+    <mat-menu #menu="matMenu"> </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menu">Fale Conosco</button>
+    <mat-menu #menu="matMenu"> </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menu">Sobre</button>
+    <mat-menu #menu="matMenu"> </mat-menu>
+  </div>
+
+</header>
