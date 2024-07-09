@@ -1,27 +1,56 @@
-# Dogs
+# DogService
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
+![image](.github/preview-m.png)
+![image](.github/preview.png)
 
-## Development server
+## Descrição
+DogService é um serviço Angular para buscar informações sobre diferentes raças de cães. Ele utiliza HTTP para se comunicar com uma API e suporta paginação para facilitar a navegação através de uma grande quantidade de dados. Este projeto foi desenvolvido para fornecer uma maneira simples e eficiente de obter dados sobre cães.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Funcionalidades
+Busca de Raças de Cães: Permite buscar informações sobre diferentes raças de cães.
+Paginação: Suporta paginação para gerenciar a quantidade de dados retornados em cada requisição.
+Siga estas etapas para configurar e executar o projeto localmente.
 
-## Code scaffolding
+## Pré-requisitos
+Node.js (>= 12.x)
+Angular CLI (>= 12.x)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Passos
+Clone o Repositório:
+git clone https://github.com/seu-usuario/dogservice.git
 
-## Build
+## Instale as Dependências:
+npm install
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Execute o Projeto:
+ng serve
 
-## Running unit tests
+## Acesse o Serviço:
+Abra seu navegador e vá para http://localhost:4200.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Testes
+O projeto utiliza Jasmine e Angular TestBed para testes unitários.
 
-## Running end-to-end tests
+## Executar Testes
+Para executar os testes, use o comando:
+ng test
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Executar coverage
+ng test --code-coverage
 
-## Further help
+## Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Passos para Contribuir
+Fork o repositório.
+Crie uma nova branch (git checkout -b feature/nova-feature).
+Faça commit das suas alterações (git commit -m 'Adiciona nova feature').
+Faça push para a branch (git push origin feature/nova-feature).
+Abra um Pull Request.
+
+Contato
+Se você tiver alguma dúvida, sinta-se à vontade para entrar em contato:
+
+Nome: Roberta Neres
+Email: Robertha07rocha@gmail.com
+LinkedIn: https://www.linkedin.com/in/roberta-neres-b09483112/
