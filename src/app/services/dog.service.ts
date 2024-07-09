@@ -12,12 +12,13 @@ export class DogService {
 
   constructor(private http: HttpClient) {}
 
-  public getDogs(page = 0, limit = 10): Observable<Dog[]> {
+  public getDogs(page = 0, limit = 10) {
     return this.http.get<Dog[]>(`${this.resourceUrl}/breeds/`, {
       params: {
         page,
         limit,
       },
+      observe: 'response',
     });
   }
 }

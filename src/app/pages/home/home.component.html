@@ -6,7 +6,14 @@
       (onClick)="handleOpenModal($event)"
     ></app-card>
   </section>
-  <ng-container *ngIf="isLoading">
-    <mat-spinner></mat-spinner>
-  </ng-container>
 </main>
+<app-spinner [show]="!isLoading"></app-spinner>
+<mat-paginator
+  *ngIf="!isLoading"
+  [pageSize]="limit"
+  [pageIndex]="page"
+  [length]="totalPages"
+  [showFirstLastButtons]="true"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>
