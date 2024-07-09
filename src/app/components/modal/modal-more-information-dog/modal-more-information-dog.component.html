@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{ data.dog.name }}</h2>
+<mat-dialog-content>
+  <section>
+    <div>Origin: {{ data.dog.origin }}</div>
+    <div>Life span: {{ data.dog.life_span }}</div>
+    <section>
+      Weight:
+      <ul>
+        <li>Imperial: {{ data.dog.weight.imperial }}</li>
+        <li>Metric: {{ data.dog.weight.metric }}</li>
+      </ul>
+    </section>
+    <section>
+      Height:
+      <ul>
+        <li>Imperial: {{ data.dog.height.imperial }}</li>
+        <li>Metric: {{ data.dog.height.metric }}</li>
+      </ul>
+    </section>
+    <div>Breed group: {{ data.dog.breed_group }}</div>
+    <div>Bred for: {{ data.dog.bred_for }}</div>
+  </section>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="onClose()">Close</button>
+</mat-dialog-actions>
