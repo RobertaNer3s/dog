@@ -3,8 +3,9 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { DogService } from '../../../../src/app/services/dog.service';
-import { Dog } from '../../../../src/app/models/Dog';
+import { DogService } from './dog.service';
+import { Dog } from '../models/Dog';
+
 
 describe('DogService', () => {
   let service: DogService;
@@ -72,13 +73,12 @@ describe('DogService', () => {
     ];
 
     // WHEN
-    service.getDogs(0, 10).subscribe((dogs) => {
-      expect(dogs.length).toBe(2);
-      expect(dogs).toEqual(dummyDogs);
+    service.getDogs(0, 10).subscribe(response => {
+      expect(response.body).toEqual(dummyDogs);
     });
 
     // THEN
-    const request = httpMock.expectOne(`${service['resourceUrl']}/breeds`);
+    const request = httpMock.expectOne(`${service['resourceUrl']}/breeds/?page=0&limit=10`);
     expect(request.request.method).toBe('GET');
     request.flush(dummyDogs);
   });

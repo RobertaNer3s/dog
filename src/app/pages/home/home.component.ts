@@ -23,10 +23,10 @@ import { SpinnerComponent } from '../../components/spinner/spinner.component';
 export class HomeComponent implements OnInit {
   public dogs: Dog[] = [];
   public isLoading = false;
-  readonly dialog = inject(MatDialog);
   public totalPages: number = 0;
   public page: number = 0;
   public limit: number = 12;
+  readonly dialog = inject(MatDialog);
 
   constructor(private dogService: DogService) {}
 
@@ -48,7 +48,6 @@ export class HomeComponent implements OnInit {
   }): void {
     pageIndex && (this.page = pageIndex);
     pageSize && (this.limit = pageSize);
-    // console.log(pageIndex)
     this.handleGetDogs(pageIndex);
   }
 
