@@ -1,19 +1,56 @@
-.styled-button {
-  background-color: #008CBA;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 12px;
-  transition-duration: 0.4s;
-}
+@import "../../../layouts/variables.scss";
 
-.styled-button:hover {
-  background-color: white;
-  color: black;
+.more-information-dog {
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 450px;
+  }
+
+  .styled-button {
+    background-color: $color-primary;
+    border: none;
+    color: $color-white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: $font-size-large;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+  }
+
+  .subtitle-text {
+    font-size: $font-size-large;
+    font-weight: $font-bold;
+    line-height: 24px;
+  }
+
+  .image {
+    width: 100%;
+    height:150px;
+
+    @media (min-width: 375px) {
+      height: 200px;
+    }
+
+    @media (min-width: 420px) {
+      height: 250px;
+    }
+  }
+
+  .text {
+    margin: 8px 24px;
+  }
+
+  .styled-button:hover {
+    background-color: $color-secondary;
+    color: $color-black;
+  }
+
+  .title {
+    font-weight: $font-bold;
+  }
 }

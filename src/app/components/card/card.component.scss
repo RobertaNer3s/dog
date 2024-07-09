@@ -1,6 +1,8 @@
+@import "../../layouts/variables.scss";
+
 img {
-  margin: 24px;
-  border-radius: 10px;
+  margin: 12px;
+  border-radius: 50%;
   width: 132px;
   height: 132px;
 }
@@ -14,16 +16,21 @@ img {
   justify-content: space-between;
 }
 
+.mat-mdc-card-header {
+  display: flex;
+  padding: 0 16px 16px;
+}
+
 mat-card {
   cursor: pointer;
 }
 
 mat-card-title {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: $font-size-x-large;
+  font-weight: $font-bold;
 }
 
 mat-card-subtitle {
-  font-size: 12px;
+  font-size: $font-size-little;
   font-style: italic;
 }

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Dog } from '../../../models/Dog';
 import {
@@ -17,6 +18,7 @@ import {
     MatDialogClose,
     MatDialogContent,
     MatDialogTitle,
+    CommonModule
   ],
   templateUrl: './modal-more-information-dog.component.html',
   styleUrl: './modal-more-information-dog.component.scss',

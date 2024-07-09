@@ -1,26 +1,59 @@
-<h2 mat-dialog-title>{{ data.dog.name }}</h2>
-<mat-dialog-content>
-  <section>
-    <div>Origin: {{ data.dog.origin }}</div>
-    <div>Life span: {{ data.dog.life_span }}</div>
+<div class="more-information-dog">
+
+  <img class="image" [src]="data.dog.image.url" >
+  <h2 class="title" mat-dialog-title>{{ data.dog.name }}</h2>
+
+  <mat-dialog-content>
     <section>
-      Weight:
-      <ul>
-        <li>Imperial: {{ data.dog.weight.imperial }}</li>
-        <li>Metric: {{ data.dog.weight.metric }}</li>
-      </ul>
+      <div *ngIf="data.dog.temperament">
+        <span class="subtitle-text"> Temperament: </span>
+        {{ data.dog.temperament }}
+      </div>
+      <div *ngIf="data.dog.origin">
+        <span class="subtitle-text"> Origin: </span> {{ data.dog.origin }}
+      </div>
+      <div *ngIf="data.dog.life_span">
+        <span class="subtitle-text"> Life span: </span> {{ data.dog.life_span }}
+      </div>
+      <section *ngIf="data.dog.weight">
+        <span class="subtitle-text"> Weight: </span>
+        <ul class="text">
+          <li *ngIf="data.dog.weight.imperial">
+            Imperial: {{ data.dog.weight.imperial }}
+          </li>
+          <li *ngIf="data.dog.weight.metric">
+            Metric: {{ data.dog.weight.metric }}
+          </li>
+        </ul>
+      </section>
+      <section *ngIf="data.dog.height">
+        <span class="subtitle-text"> Height: </span>
+        <ul class="text">
+          <li *ngIf="data.dog.height.imperial">
+            Imperial: {{ data.dog.height.imperial }}
+          </li>
+          <li *ngIf="data.dog.height.metric">
+            Metric: {{ data.dog.height.metric }}
+          </li>
+        </ul>
+      </section>
+      <div *ngIf="data.dog.breed_group">
+        <span class="subtitle-text"> Breed group: </span>
+        {{ data.dog.breed_group }}
+      </div>
+      <div *ngIf="data.dog.bred_for">
+        <span class="subtitle-text"> Bred for: </span>{{ data.dog.bred_for }}
+      </div>
     </section>
-    <section>
-      Height:
-      <ul>
-        <li>Imperial: {{ data.dog.height.imperial }}</li>
-        <li>Metric: {{ data.dog.height.metric }}</li>
-      </ul>
-    </section>
-    <div>Breed group: {{ data.dog.breed_group }}</div>
-    <div>Bred for: {{ data.dog.bred_for }}</div>
-  </section>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close (click)="onClose()">Close</button>
-</mat-dialog-actions>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button
+      class="styled-button"
+      mat-button
+      mat-dialog-close
+      (click)="onClose()"
+    >
+      Close
+    </button>
+  </mat-dialog-actions>
+</div>

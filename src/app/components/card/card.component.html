@@ -1,7 +1,12 @@
-<mat-card class="example-card" appearance="outlined" *ngIf="dog" (click)=handleModalMoreInformation();>
+<mat-card
+  class="card"
+  appearance="outlined"
+  *ngIf="dog"
+  (click)="handleModalMoreInformation()"
+>
+  <img class="img" [src]="dog.image.url" />
   <mat-card-header>
     <mat-card-title>{{ dog.name }}</mat-card-title>
     <mat-card-subtitle>{{ dog.temperament }}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-lg-image [src]="dog.image.url" />
 </mat-card>
