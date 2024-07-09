@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { DogService } from '../../services/dog.service';
+import { Dog } from '../../models/Dog';
+import { CardComponent } from '../../components/card/card.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ModalMoreInformationDogComponent } from '../../components/modal/modal-more-information-dog/modal-more-information-dog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  imports: [CommonModule, CardComponent, MatProgressSpinnerModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  public dogs: any = [];
+  public dogs: Dog[] = [];
   public isLoading = false;
+  readonly dialog = inject(MatDialog);
 
   constructor(private dogService: DogService) {}
 
@@ -21,8 +25,13 @@ export class HomeComponent implements OnInit {
     this.handleGetDogs();
   }
 
-  private handleGetDogs() {
-    console.log('caiu aqui');
+  public handleOpenModal({ selectedDog }: { selectedDog: Dog }): void {
+    this.dialog.open(ModalMoreInformationDogComponent, {
+      data: { dog: selectedDog },
+    });
+  }
+
+  private handleGetDogs(): void {
     this.isLoading = true;
     this.dogService.getDogs().subscribe({
       next: (data) => {

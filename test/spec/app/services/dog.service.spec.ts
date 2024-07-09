@@ -4,6 +4,7 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { DogService } from '../../../../src/app/services/dog.service';
+import { Dog } from '../../../../src/app/models/Dog';
 
 describe('DogService', () => {
   let service: DogService;
@@ -28,39 +29,57 @@ describe('DogService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should fetch the list of dog breeds', () => {
+  it('should retrieve dogs from the API via GET', () => {
     // GIVEN
-    const mockBreeds = [
-      { id: 1, name: 'Bulldog', temperament: 'Friendly, Courageous' },
-      { id: 2, name: 'Labrador', temperament: 'Gentle, Intelligent' },
+    const dummyDogs: Dog[] = [
+      {
+        weight: { imperial: '20 - 30', metric: '9 - 14' },
+        height: { imperial: '9 - 11.5', metric: '23 - 29' },
+        id: 1,
+        name: 'Affenpinscher',
+        bred_for: 'Small rodent hunting, lapdog',
+        breed_group: 'Toy',
+        life_span: '10 - 12 years',
+        temperament:
+          'Stubborn, Curious, Playful, Adventurous, Active, Fun-loving',
+        origin: 'Germany, France',
+        reference_image_id: 'BJa4kxc4X',
+        image: {
+          id: 'BJa4kxc4X',
+          width: 1600,
+          height: 1199,
+          url: 'https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg',
+        },
+      },
+      {
+        weight: { imperial: '50 - 60', metric: '23 - 27' },
+        height: { imperial: '23 - 26', metric: '58 - 66' },
+        id: 2,
+        name: 'Afghan Hound',
+        bred_for: 'Coursing and hunting',
+        breed_group: 'Hound',
+        life_span: '10 - 13 years',
+        temperament: 'Aloof, Clownish, Dignified, Independent, Happy',
+        origin: 'Afghanistan, Iran, Pakistan',
+        reference_image_id: 'hMyT4CDXR',
+        image: {
+          id: 'hMyT4CDXR',
+          width: 1200,
+          height: 800,
+          url: 'https://cdn2.thedogapi.com/images/hMyT4CDXR.jpg',
+        },
+      },
     ];
 
     // WHEN
-    service.getDogs().subscribe((breeds) => {
-      expect(breeds.length).toBe(2);
-      expect(breeds).toEqual(mockBreeds);
+    service.getDogs(0, 10).subscribe((dogs) => {
+      expect(dogs.length).toBe(2);
+      expect(dogs).toEqual(dummyDogs);
     });
 
     // THEN
-    const req = httpMock.expectOne(`${service['resourceUrl']}/breeds`);
-    expect(req.request.method).toBe('GET');
-    req.flush(mockBreeds);
-  });
-
-  it('should fetch dog image by breed ID', () => {
-    // GIVEN
-    const mockImage = { url: 'https://www.petz.com.br/blog/wp-content/uploads/2017/06/golden-retriever.jpg' };
-    const idDog = 1;
-
-    // WHEN
-    service.getImageDog(idDog).subscribe((image) => {
-      expect(image).toBeTruthy();
-      expect(image.url).toBe(mockImage.url);
-    });
-
-    // THEN
-    const req = httpMock.expectOne(`${service['resourceUrl']}/images/search?breed_id=${idDog}`);
-    expect(req.request.method).toBe('GET');
-    req.flush(mockImage);
+    const request = httpMock.expectOne(`${service['resourceUrl']}/breeds`);
+    expect(request.request.method).toBe('GET');
+    request.flush(dummyDogs);
   });
 });
