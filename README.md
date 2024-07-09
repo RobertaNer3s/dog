@@ -7,7 +7,7 @@
 DogService é um serviço Angular para buscar informações sobre diferentes raças de cães. Ele utiliza HTTP para se comunicar com uma API e suporta paginação para facilitar a navegação através de uma grande quantidade de dados. Este projeto foi desenvolvido para fornecer uma maneira simples e eficiente de obter dados sobre cães.
 
 ## Funcionalidades
-Busca de Raças de Cães: Permite buscar informações sobre diferentes raças de cães.
+Obter informações sobre as Raças de Cães: Permite visualizar informações sobre diferentes raças de cães.
 Paginação: Suporta paginação para gerenciar a quantidade de dados retornados em cada requisição.
 Siga estas etapas para configurar e executar o projeto localmente.
 
